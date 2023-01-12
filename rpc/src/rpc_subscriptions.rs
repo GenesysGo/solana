@@ -650,7 +650,7 @@ impl RpcSubscriptions {
                 Builder::new()
                     .name("solana-rpc-notifications".to_string())
                     .spawn(move || {
-                        const RPC_NOTIFICATION_STACK_SIZE: usize = 8 * 1024 * 1024;
+                        const RPC_NOTIFICATION_STACK_SIZE: usize = 32 * 1024 * 1024;
                         let pool = rayon::ThreadPoolBuilder::new()
                             .num_threads(notification_threads)
                             .thread_name(|i| format!("sol-sub-notif-{}", i))
